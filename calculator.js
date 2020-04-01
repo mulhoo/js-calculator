@@ -3,9 +3,12 @@ const subtraction = (num1, num2) => num1 - num2;
 const multiplication = (num1, num2) => num1 * num2;
 const division = (num1, num2) => num1 / num2;
 
-const calculator = function(num1, num2, operator) {
+const calculator = function(input) {
+  num1 = input.num1;
+  num2 = input.num2;
+  operator = input.operator;
   
-  if(isNaN(num1) || isNaN(num2)) return "Cannot complete operation with given inputs. Please try again.";
+  if (isNaN(num1) || isNaN(num2)) return "Cannot complete operation with given inputs. Please try again.";
 
   if(operator === "addition" || operator === "plus" || operator === "+" || operator === "add") {
     return addition(num1, num2);
@@ -21,11 +24,71 @@ const calculator = function(num1, num2, operator) {
   }
 }
 
-console.log(calculator(3, 9, "add"));
-console.log(calculator(3.2, 9.4, "+"));
-console.log(calculator(15, 9, "-"));
-console.log(calculator(3, 9, "subtraction"));
-console.log(calculator(4, 7, "times"))
-console.log(calculator(2, 6, "*"))
-console.log(calculator(81, 9, "divide"))
-console.log(calculator(3, 0, "/"))
+const testAddition = {
+  num1: 3,
+  num2: 5,
+  operator: "add",
+}
+
+const testAdditionDecimal = {
+  num1: 3.4,
+  num2: 5.2,
+  operator: "+",
+}
+
+const testSubtraction = {
+  num1: 3,
+  num2: 5,
+  operator: "subtraction",
+}
+
+const testSubtractionDecimal = {
+  num1: 3.4,
+  num2: 5.2,
+  operator: "-",
+}
+
+const testMultiplication = {
+  num1: 3,
+  num2: 5,
+  operator: "multiply",
+}
+
+const testMultiplicationDecimal = {
+  num1: 3.4,
+  num2: 5.2,
+  operator: "*",
+}
+
+const testDivision = {
+  num1: 3,
+  num2: 3,
+  operator: "/",
+}
+
+const testDivisionDecimal = {
+  num1: 3.4,
+  num2: 2.2,
+  operator: "divide",
+}
+
+const testDivisionZero = {
+  num1: 3,
+  num2: 0,
+  operator: "division",
+}
+
+console.log(calculator(testAddition));
+console.log(calculator(testAdditionDecimal));
+console.log(calculator(testSubtraction));
+console.log(calculator(testSubtractionDecimal));
+console.log(calculator(testMultiplication));
+console.log(calculator(testMultiplicationDecimal));
+console.log(calculator(testDivision));
+console.log(calculator(testDivisionDecimal));
+console.log(calculator(testDivisionZero));
+
+
+
+
+
